@@ -56,5 +56,5 @@ list.insert("b");
 list.insert("c");
 list.insert("d");
 console.log(list.print());
-list.insertAtPos("x", 3);
+list.insertAtPos("x", 3);   
 console.log(list.print());

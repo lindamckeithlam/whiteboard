@@ -23,4 +23,7 @@ function uniq(arr) {
   return uniq;
 }
 
-console.log(uniq(arr2));
+// console.log(uniq(arr2));
+
+
+
