@@ -1,3 +1,7 @@
+// Time 0(nlogn) because as the input get infinitely larger,
+// we are "cutting data" in half each time and using the merge function
+// to iterate again over so n * log n
+
 function mergeSort(array) {
   if (array.length <= 1) return array;
   let midIdx = Math.floor(array.length / 2);
