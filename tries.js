@@ -8,6 +8,12 @@ class Node {
   }
 }
 
+class Trie {
+  constructor() {
+    this.root = new Node();
+  }
+}
+
 const root = new Node();
 const a = new Node();
 const b = new Node();
