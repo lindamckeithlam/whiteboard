@@ -1,27 +1,22 @@
 function valid_parenthesis(str) {
-  let indices = [];
-  let hashes = { "{": ["{", "}"], "[": ["[", "]"], "(": ["(", ")"] };
+  const queue = [];
+  const opens = ["{", "(", "["];
+  const closes = ["}", ")", "]"];
 
-  str.forEach(char => {
-    let local = [];
-    hashes[char].forEach(char2, i => {
-      let current_letters = hashes[char];
-      if (
-        str.indexOf(current_letters[i]) &&
-        str.indexOf(current_letters[i + 1])
-      ) {
-        indices.push([
-          str.indexOf(current_letters[i]),
-          str.indexOf(current_letters[i + 1])
-        ]);
-      } else {
-        return false;
-      }
-    });
-  });
+  const hash = {
+    "{": "}",
+    "[": "]",
+    "(": ")"
+  };
 
-  let sorted = indices.sort((a, b) => {
-    return a - b;
-  });
-  return sorted.toString() === indices.toString();
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    if (opens.includes(char)) {
+      queue.push(char);
+    } else {
+      var newChar = queue.pop();
+      if (hash[newChar] !== char) return false;
+    }
+  }
+  return true;
 }
